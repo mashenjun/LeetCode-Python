@@ -4,6 +4,7 @@ package validAnagram
 Input: s = "anagram", t = "nagaram"
 Output: true
 */
+// 思路：模拟hash
 func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
 		return false

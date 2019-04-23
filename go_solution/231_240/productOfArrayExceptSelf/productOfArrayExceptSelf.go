@@ -1,6 +1,7 @@
 package productOfArrayExceptSelf
 
 // 238. Product of Array Except Self
+// 思路：从左往右遍历，记录当前元素之前的所有元素的乘积，然后在从右往左遍历，加上当前元素之后的乘积
 func productExceptSelf(nums []int) []int {
 	var rlt = make([]int, len(nums))
 	for i, tmp := 0, 1; i < len(nums); i++ {
@@ -10,18 +11,18 @@ func productExceptSelf(nums []int) []int {
 		}
 		if nums[i] == -1 {
 			tmp = -tmp
-		}else {
+		} else {
 			tmp *= nums[i]
 		}
 	}
 	for i, tmp := len(nums)-1, 1; i >= 0; i-- {
 		rlt[i] *= tmp
-		if nums[i] ==1 {
+		if nums[i] == 1 {
 			continue
 		}
 		if nums[i] == -1 {
 			tmp = -tmp
-		}else{
+		} else {
 			tmp *= nums[i]
 		}
 	}

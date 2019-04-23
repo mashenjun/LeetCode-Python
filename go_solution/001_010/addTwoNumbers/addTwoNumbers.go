@@ -8,9 +8,9 @@ type ListNode struct {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	tmp := 0
-	head := &ListNode{Val: 0, Next: nil} // dummy node to track the head of the result
-	node := head
+	tmp := 0 // 记录进位
+	dummy := &ListNode{Val: 0, Next: nil} // dummy node to track the dummy of the result
+	node := dummy
 	for l1 != nil || l2 != nil || tmp != 0 {
 		if l1 != nil {
 			tmp = tmp + l1.Val
@@ -27,5 +27,5 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		node = node.Next
 		tmp = tmp / 10
 	}
-	return head.Next
+	return dummy.Next
 }

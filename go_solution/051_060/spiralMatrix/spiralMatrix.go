@@ -1,6 +1,7 @@
 package spiralMatrix
 
 // 54. Spiral Matrix
+// 思路：用direction控制遍历f方向
 func spiralOrder(matrix [][]int) []int {
 	if len(matrix) == 0 {
 		return []int{}

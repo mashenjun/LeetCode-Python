@@ -1,8 +1,9 @@
 package trappingRainWater
+
 //
-// 思路：
+// 思路：头尾两个指针向内逼近
 func trapWithTwoPoints(height []int) int {
-	l, r := 0, len(height) - 1
+	l, r := 0, len(height)-1
 	water := 0
 	lMax, rMax := 0, 0
 	for l < r {

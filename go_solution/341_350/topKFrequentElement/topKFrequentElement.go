@@ -12,40 +12,8 @@ func topKFrequent(nums []int, k int) []int {
 	return topKFrequentWithQS(nums, k)
 }
 
-// implement container heap interface
-type Item struct {
-	p int // priority
-	v int // value
-}
-
-type Heap struct {
-	// capability int
-	data []Item
-}
-
-func (h *Heap) Len() int {
-	return len(h.data)
-}
-
-func (h *Heap) Less(i, j int) bool {
-	return h.data[i].p > h.data[j].p
-}
-
-func (h *Heap) Swap(i, j int) {
-	h.data[i], h.data[j] = h.data[j], h.data[i]
-}
-
-func (h *Heap) Pop() (v interface{}) {
-	v, h.data = h.data[len(h.data)-1], h.data[:len(h.data)-1]
-	return v
-}
-
-func (h *Heap) Push(v interface{}) {
-	h.data = append(h.data, v.(Item))
-}
-
+// 思路：使用大顶堆，pop k次，获得的就是前k大的元素
 func topKFrequentWithHeap(nums []int, k int) []int {
-	// use heap
 	fmap := make(map[int]int)
 	rlt := make([]int, 0)
 	for _, v := range nums {
@@ -70,6 +38,7 @@ func topKFrequentWithHeap(nums []int, k int) []int {
 	return rlt
 }
 
+// 思路：使用快排排序
 func topKFrequentWithQS(nums []int, k int) []int {
 	fmap := make(map[int]int)
 	rlt := make([]int, 0)

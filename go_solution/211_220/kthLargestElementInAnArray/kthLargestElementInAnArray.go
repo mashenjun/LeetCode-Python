@@ -15,24 +15,25 @@ func findKthLargestWithMiniHeap(nums []int, k int) int {
 	}
 	return heap.Pop(h).(int)
 }
-// todo 思路：
+
+// 思路：类似快排，但不用把快排做完，只要发现pivot==k的时候就已经找到了结果
 func findKthLargestWithSort(nums []int, k int) int {
 	expectedIdx := len(nums) - k
 	left, right, pivotIdx, pivotVal := divideByPivot(nums, 0)
 	for pivotIdx != expectedIdx {
 		if pivotIdx < expectedIdx {
-			left, right, pivotIdx, pivotVal = divideByPivot(right, pivotIdx + 1)
+			left, right, pivotIdx, pivotVal = divideByPivot(right, pivotIdx+1)
 		} else {
-			left, right, pivotIdx, pivotVal = divideByPivot(left, pivotIdx - len(left))
+			left, right, pivotIdx, pivotVal = divideByPivot(left, pivotIdx-len(left))
 		}
 	}
 	return pivotVal
 }
 
-func divideByPivot(nums []int, startIdx int) ([]int,[]int, int, int) {
+func divideByPivot(nums []int, startIdx int) ([]int, []int, int, int) {
 	pivot := nums[0]
 	left, right := []int{}, []int{}
-	for i:=1;i<len(nums);i++ {
+	for i := 1; i < len(nums); i++ {
 		if nums[i] > pivot {
 			right = append(right, nums[i])
 		} else {
@@ -45,4 +46,3 @@ func divideByPivot(nums []int, startIdx int) ([]int,[]int, int, int) {
 	return left, right, pivotIdx, pivot
 
 }
-

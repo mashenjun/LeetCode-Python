@@ -1,6 +1,6 @@
 package zigZagConversion
 //
-// 思路：找到zigZag转换的规律
+// 思路：找到ZigZag转换的规律
 func convert(s string, numRows int) string {
 	if numRows <= 1 {
 		return s

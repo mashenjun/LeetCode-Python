@@ -8,8 +8,8 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// 	思路: 用中序遍历k次
 func kthSmallest(root *TreeNode, k int) int {
-	// use inorder iteration
 	if root == nil {
 		return -1
 	}
@@ -20,7 +20,7 @@ func kthSmallest(root *TreeNode, k int) int {
 			stack = append(stack, curr)
 			curr = curr.Left
 		}
-		curr, stack = stack[len(stack)-1], stack[:len(stack)-1]
+		curr, stack = stack[len(stack)-1], stack[:len(stack)-1] // pop form stack
 		k--
 		if k == 0 {
 			return curr.Val

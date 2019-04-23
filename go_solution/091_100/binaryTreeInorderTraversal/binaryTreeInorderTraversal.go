@@ -29,8 +29,7 @@ func inorderIteration(root *TreeNode) []int {
 			curr = curr.Left
 		}
 		// 出栈并访问
-		curr = stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
+		curr, stack =  stack[len(stack)-1], stack[:len(stack)-1]
 		rlt = append(rlt, curr.Val)
 		// curr 指向右子
 		curr = curr.Right
