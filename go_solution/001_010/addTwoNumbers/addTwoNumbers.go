@@ -1,6 +1,11 @@
 package addTwoNumbers
 
-// 002. Add Two Numbers
+/*
+	002. Add Two Numbers
+	Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+	Output: 7 -> 0 -> 8
+	Explanation: 342 + 465 = 807.
+ */
 
 type ListNode struct {
 	Val  int
@@ -9,7 +14,7 @@ type ListNode struct {
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	tmp := 0 // 记录进位
-	dummy := &ListNode{Val: 0, Next: nil} // dummy node to track the dummy of the result
+	dummy := &ListNode{Val: 0, Next: nil} // dummy node to track the result
 	node := dummy
 	for l1 != nil || l2 != nil || tmp != 0 {
 		if l1 != nil {
