@@ -33,7 +33,7 @@ func (sl *Skiplist) Search(target int) bool {
 		return false
 	}
 	// 关键逻辑
-	// 从头节点开始，以从高到低的顺序，检查节点所在层的后继节点和目标值的大小
+	// 从头节点开始，以从高到低的顺序，比较节点所在层的后继节点和目标值的大小
 	// 目的是为了找到这一层中比仅仅小于目标值的节点，然后从这个节点下潜至下一层
 	// 当跳出循环的时候，我们已经完成了阶梯型下潜的过程，我们可以直接检查当前节点最底层的后继节点是否等于目标值
 	curr := sl.root
@@ -67,7 +67,7 @@ func (sl *Skiplist) Add(num int) {
 		update[i] = sl.root
 	}
 	// 关键逻辑
-	// 和查询类似，从高到低，查询这个新节点被分配的层中，仅比新加值小的节点，记录在update数组中
+	// 和查询类似，从高到低，查询这个新节点在被分配的层中，仅比新加值小的节点，记录在update数组中
 	curr := sl.root
 	for i := level - 1; i >= 0; i-- {
 		for curr.Forward[i] != nil && curr.Forward[i].Val < num {
@@ -89,7 +89,7 @@ func (sl *Skiplist) Add(num int) {
 func (sl *Skiplist) Erase(num int) bool {
 	update := make([]*Node, sl.levelCount)
 	// 关键逻辑
-	// 和查询类似，从高到低，查询这个新节点被分配的层中，仅比新加值小的节点，记录在update数组中
+	// 和查询类似，从高到低，查询这个新节点在被分配的层中，仅比新加值小的节点，记录在update数组中
 	curr := sl.root
 	for i := sl.levelCount - 1; i >= 0; i-- {
 		for curr.Forward[i] != nil && curr.Forward[i].Val < num {
