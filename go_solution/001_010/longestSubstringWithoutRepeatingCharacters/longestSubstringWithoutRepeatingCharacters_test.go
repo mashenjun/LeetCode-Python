@@ -13,6 +13,7 @@ func lengthOfLongestSubstring(s string) int {
 	}
 	res, l, store:= 0, 0, map[int32]int{}
 	for i, c := range s {
+		// 如果检测到有重复字符，更新l到下一个字符的位置
 		if _, ok := store[c]; ok {
 			if store[c]+1 > l {
 				l = store[c]+1
