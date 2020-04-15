@@ -1,5 +1,5 @@
 package twoSum
-// 1. Two Sum
+// 001. Two Sum
 // idea: use map to record all visited numbers
 func twoSum(nums []int, target int) []int {
 	trace := make(map[int]int)

@@ -1,5 +1,5 @@
 package reverseInteger
-// 7. Reverse Integer
+// 007. Reverse Integer
 func reverse(x int) int {
 	max := 1<<31 -1 // max val for int and int32
 	min := -1* 1<<31 // min val for int and int32

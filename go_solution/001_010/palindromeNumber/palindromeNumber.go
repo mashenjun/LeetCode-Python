@@ -1,6 +1,6 @@
 package palindromeNumber
 
-// 9. Palindrome Number
+// 009. Palindrome Number
 func isPalindrome(x int) bool {
 	if x < 0 {
 		return false

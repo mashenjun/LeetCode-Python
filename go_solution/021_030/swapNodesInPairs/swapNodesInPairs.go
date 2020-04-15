@@ -6,6 +6,7 @@ type ListNode struct {
 }
 
 // 024. Swap Nodes in Pairs
+// Given a linked list, swap every two adjacent nodes and return its head.
 func swapPairs(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head

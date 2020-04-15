@@ -1,6 +1,6 @@
 package stringToInteger
 
-// 8. String to Integer (atoi)
+// 008. String to Integer (atoi)
 func myAtoi(str string) int {
 	keys := make(map[string]int)
 	keys["0"] = 0

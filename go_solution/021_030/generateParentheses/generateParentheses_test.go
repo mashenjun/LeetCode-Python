@@ -3,5 +3,5 @@ package generateParentheses
 import "testing"
 
 func Test_generateParenthesis(t *testing.T) {
-	t.Log(generateParenthesis(3))
+	t.Log(generateParenthesis(2))
 }

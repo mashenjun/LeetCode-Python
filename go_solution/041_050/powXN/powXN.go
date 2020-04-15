@@ -3,6 +3,7 @@ package powXN
 // 050. Pow(x, n)
 // 思路：牛顿法
 func myPow(x float64, n int) float64 {
+	// 调整正负号
 	if n < 0 {
 		x = 1 / x
 		n = -n

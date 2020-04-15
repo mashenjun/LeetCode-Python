@@ -26,7 +26,7 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 			return head
 		}
 	}
-	// 如果k小于整条链的长度，此时nextHead指向改group中反转后的头节点
+	// 如果k小于整条链的长度，此时nextHead指向该group中反转后的头节点
 	// 需要反转
 	rlt = nextHead
 	current := head
