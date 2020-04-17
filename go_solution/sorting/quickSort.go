@@ -45,6 +45,7 @@ func quickSort2(nums []int) {
 	quickSortCore(nums, 0, len(nums)-1)
 }
 
+// 快排是原地排序，可以直接在原来的slice上操作
 func quickSortCore(nums []int, left, right int) {
 	if left >= right {
 		return

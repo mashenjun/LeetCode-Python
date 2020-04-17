@@ -18,7 +18,7 @@ func maxSlidingWindow(nums []int, k int) []int {
 		for len(window) > 0 && nums[window[len(window)-1]] <= v {
 			window = window[:len(window)-1] // 把窗口内比新进元素小的全部移除
 		}
-		window = append(window, idx) // 把新的元素append进来
+		window = append(window, idx) // 把新的元素的下标append进来
 		if idx >= k-1 {
 			rlt = append(rlt, nums[window[0]]) // 窗口里的第一个元素永远是窗口里最大的
 		}

@@ -11,6 +11,7 @@ func mergeSortRecursion(nums []int) []int {
 	return merge(left, right)
 }
 
+// 归并排序不是原地排序，需要copy slice
 func merge(listOne, listTwo []int) []int {
 	var rlt []int
 	idxOne, idxTwo := 0, 0
