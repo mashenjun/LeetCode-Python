@@ -13,3 +13,10 @@ func Test_quickSort2(t *testing.T) {
 	quickSort2(nums)
 	t.Log(nums)
 }
+
+func TestArray(t*testing.T) {
+	n := 4
+	arr := [10]int{}
+	a := arr[n]
+	t.Log(a)
+}

@@ -47,7 +47,7 @@ func inorderRecursive(root *TreeNode) (head *ListNode, tail *ListNode) {
 	return
 }
 
-// 方法二：中序遍历， 非遍历
+// 方法二：中序遍历， 非递归
 func inorderIteration(root *TreeNode) (head *ListNode, tail *ListNode) {
 	var (
 		stack = make([]*TreeNode, 0)
