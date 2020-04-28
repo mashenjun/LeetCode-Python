@@ -8,7 +8,7 @@ import "testing"
 
 	Input: 1->2->3->4->5->NULL, m = 2, n = 4
 	Output: 1->4->3->2->5->NULL
- */
+*/
 
 type ListNode struct {
 	Val  int
@@ -25,12 +25,12 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 	}
 	var prev *ListNode
 	var pivot, tail *ListNode
-	for i:=1;i<m;i++ {
+	for i := 1; i < m; i++ {
 		prev, head = head, head.Next
 	}
 	pivot, tail = prev, head
 	var tmp *ListNode
-	for i:=0;i<=n-m;i++ {
+	for i := 0; i <= n-m; i++ {
 		tmp = head.Next
 		head.Next, prev = prev, head
 		head = tmp
@@ -39,7 +39,7 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 	tail.Next = head
 	if pivot != nil {
 		pivot.Next = prev
-	}else {
+	} else {
 		dummy.Next = prev
 	}
 	return dummy.Next
@@ -65,8 +65,8 @@ func genLinkedList(source []int) *ListNode {
 }
 
 func Test_reverseBetween(t *testing.T) {
-	head := genLinkedList([]int{1,2,3,4,5})
-	rlt := reverseBetween(head,2,4)
+	head := genLinkedList([]int{1, 2, 3, 4, 5})
+	rlt := reverseBetween(head, 2, 4)
 	for rlt != nil {
 		t.Log(rlt.Val)
 		rlt = rlt.Next

@@ -17,7 +17,8 @@ type TreeNode struct {
 func sortedListToBST(head *ListNode) *TreeNode {
 	return toTree(head)
 }
-
+// 递归实现，每次递归都需要用快慢指针找到链表的中间节点，然后拆分成左半部分，中间节点，右半部分
+// 利用左半部分，中间节点，右半部分构造成一个BST是
 func toTree(head *ListNode) (root *TreeNode) {
 	if head == nil {
 		return nil

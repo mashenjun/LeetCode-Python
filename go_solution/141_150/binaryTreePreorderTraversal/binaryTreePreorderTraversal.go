@@ -46,3 +46,30 @@ func preorderRecursive(root *TreeNode) []int {
 		return rlt
 	}
 }
+
+func preorderMorris(root *TreeNode) []int {
+	ret := make([]int, 0)
+	for root != nil {
+		if root.Left == nil {
+			ret = append(ret, root.Val)
+			root = root.Right
+		}else {
+			pivot := root.Left
+			for pivot.Right != nil && pivot.Right != root {
+				pivot = pivot.Right
+			}
+			if pivot.Right == nil {
+				pivot.Right = root
+				ret = append(ret, root.Val)
+				root = root.Left
+
+			}else if pivot.Right == root{
+				pivot.Right = nil
+				root = root.Right
+			}
+		}
+	}
+	return ret
+}
+
+
