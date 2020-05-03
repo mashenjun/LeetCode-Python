@@ -11,7 +11,7 @@ func lengthOfLongestSubstring(s string) int {
 	if len(s) <=1 {
 		return len(s)
 	}
-	res, l, store:= 0, 0, map[int32]int{}
+	ret, l, store:= 0, 0, map[int32]int{}
 	for i, c := range s {
 		// 如果检测到有重复字符，更新l到下一个字符的位置
 		if _, ok := store[c]; ok {
@@ -19,12 +19,12 @@ func lengthOfLongestSubstring(s string) int {
 				l = store[c]+1
 			}
 		}
-		if i-l+1 > res {
-			res = i-l+1
+		if i-l+1 > ret {
+			ret = i-l+1
 		}
 		store[c] = i
 	}
-	return res
+	return ret
 }
 
 func Test_lengthOfLongestSubstring(t *testing.T) {
