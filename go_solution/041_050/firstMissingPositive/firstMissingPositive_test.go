@@ -1,4 +1,4 @@
-package _firstMissingPositive
+package firstMissingPositive
 
 
 // 041. First Missing Positive
