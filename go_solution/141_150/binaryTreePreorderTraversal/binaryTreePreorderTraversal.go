@@ -24,7 +24,7 @@ func preorderInteration(root *TreeNode) []int {
 		curr := stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
 		rlt = append(rlt, curr.Val)
-		// 先将右子入栈，在将左子入栈
+		// 先将右子入栈，再将左子入栈
 		if curr.Right != nil {
 			stack = append(stack, curr.Right)
 		}
@@ -68,7 +68,6 @@ func preorderMorris(root *TreeNode) []int {
 				pivot.Right = root
 				ret = append(ret, root.Val)
 				root = root.Left
-
 			}else if pivot.Right == root{
 				pivot.Right = nil
 				root = root.Right

@@ -5,7 +5,7 @@ import "testing"
 /*
 	003. Longest Substring Without Repeating Characters
 	Given a string, find the length of the longest substring without repeating characters.
-	IDEA: slicing window
+	IDEA: slicing window, double pointer
 */
 func lengthOfLongestSubstring(s string) int {
 	if len(s) <=1 {

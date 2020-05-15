@@ -1,4 +1,4 @@
-package binarySearchTreeConvert
+package pointOffer
 
 /*
 题目描述
@@ -72,4 +72,46 @@ func inorderIteration(root *TreeNode) (head *ListNode, tail *ListNode) {
 	}
 	tail = prev
 	return head, tail
+}
+
+type Node struct {
+	Val   int
+	Left  *Node
+	Right *Node
+}
+
+func treeToDoublyList(root *Node) *Node {
+	if root == nil{
+		return nil
+	}
+	head, tail := inOrder(root)
+	head.Left = tail
+	tail.Right = head
+	return head
+}
+
+func inOrder(root *Node) (head *Node, tail *Node) {
+	if root == nil {
+		return nil, nil
+	}
+	if root.Left == nil && root.Right == nil {
+		return root, root
+	}
+	if root.Left != nil {
+		lhead, ltail := inOrder(root.Left)
+		head = lhead
+		ltail.Right = root
+		root.Left = ltail
+	} else {
+		head = root
+	}
+	if root.Right != nil {
+		rhead, rtail := inOrder(root.Right)
+		tail = rtail
+		rhead.Left = root
+		root.Right = rhead
+	} else {
+		tail = root
+	}
+	return
 }

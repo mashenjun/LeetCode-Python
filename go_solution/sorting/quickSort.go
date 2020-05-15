@@ -57,8 +57,8 @@ func quickSortCore(nums []int, left, right int) {
 
 // 基于'极客时间-数据结构与算法' 递归方式实现
 func partition2(nums[]int, left, right int) int {
-	i :=left
 	pivot := nums[right]
+	i :=left // i用来跟踪所有小于pivot的值；i左边的都是小于pivot的，i的右边都是大于pivot的
 	for j := left; j<= right; j++ {
 		if nums[j] < pivot {
 			nums[i], nums[j] = nums[j], nums[i]

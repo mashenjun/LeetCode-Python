@@ -1,4 +1,4 @@
-package binarySearchTreeConvert
+package pointOffer
 
 import (
 	"fmt"
@@ -14,7 +14,7 @@ func init() {
 			Val: 3,
 			Left:&TreeNode{
 				Val: 1,
-				Right: &TreeNode{Val:2},
+				Right: &TreeNode{Val: 2},
 			},
 			Right: &TreeNode{
 				Val: 4,
@@ -26,7 +26,7 @@ func init() {
 			Left: &TreeNode{Val: 6},
 			Right: &TreeNode{
 				Val: 8,
-				Right:&TreeNode{Val:9},
+				Right:&TreeNode{Val: 9},
 			},
 		},
 	}
