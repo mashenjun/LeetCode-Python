@@ -31,3 +31,32 @@ func longestPalindrome(s string) string {
 	}
 	return s[maxIdx[0] : maxIdx[1]+1]
 }
+
+func longestPalindrome2(s string) string {
+	// 初始化dp
+	if len(s) == 0 {
+		return s
+	}
+	dp := make([][]bool, len(s))
+	for i := 0; i < len(s); i++ {
+		dp[i] = make([]bool, len(s))
+		dp[i][i] = true
+	}
+	l, r := 0, 0
+	for j := 0; j < len(s); j++ {
+		for i := 0; i < j; i++ {
+			if j-i > 1 && dp[i+1][j-1] && s[i] == s[j] { // i与j不邻接
+				dp[i][j] = true
+			} else if j-i == 1 && s[i] == s[j] { // i与j邻接
+				dp[i][j] = true
+			}
+
+			if dp[i][j] {
+				if r-l < j-i {
+					l, r = i, j
+				}
+			}
+		}
+	}
+	return s[l : r+1]
+}

@@ -6,6 +6,9 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	return build(preorder, inorder, 0, 0, len(inorder)-1)
 }
 // 思路：递归，每次递归需要的参数为 需要构建的子树的根节点在preorder中的下标，子树在inorder中的左边界和右边界
+// 递归的终止条件：left > right
+// 每次递归的返回值：构造好的子树的root
+// 每次递归的逻辑：通过preorder[idx]把inodrer分成左右两部分，左边用于构造做子树，右边用于构造右子树
 func build(preorder []int, inorder []int, idx, left, right int) *TreeNode{
 	if left > right {
 		return nil

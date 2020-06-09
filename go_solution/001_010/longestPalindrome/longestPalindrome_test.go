@@ -20,3 +20,8 @@ func TestLongestPalindrome(t *testing.T){
 		})
 	}
 }
+
+func TestLongestPalindrome2(t *testing.T) {
+	input :=  "aaaa"
+	t.Log(longestPalindrome2(input))
+}
